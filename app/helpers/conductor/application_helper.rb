@@ -8,4 +8,13 @@ module Conductor::ApplicationHelper
       'Tolk'
     end        
   end
+
+  def webconsole_link
+    if defined?(WebConsole)
+      link_to("WebConsole", '/console') 
+    else
+      'WebConsole'
+    end        
+  end
+
 end

@@ -5,7 +5,7 @@ module Conductor::ApplicationHelper
     if defined?(Tolk)
       link_to("Tolk", '/tolk') 
     else
-      'Tolk'
+      link_to("Tolk", "http://www.github.com/tolk/tolk",target: "_blank",confirm:"This extension is not installed." ) 
     end        
   end
 
@@ -13,7 +13,7 @@ module Conductor::ApplicationHelper
     if defined?(WebConsole)
       link_to("WebConsole", '/console') 
     else
-      'WebConsole'
+      link_to("WebConsole", "https://github.com/rails/web-console",target: "_blank",confirm:"This extension is not installed." ) 
     end        
   end
 

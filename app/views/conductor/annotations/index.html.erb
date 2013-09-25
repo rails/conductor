@@ -1,11 +1,36 @@
 <h1>Notes</h1>
 
-<% for file in @notes.keys %>
+<h2>TODO</h2>
+<% for file in @todo.keys %>
   <div class="annotated_file">
     <p><%= file %></p>
     <ul>
-      <% for annotation in @notes[file] %>
-        <li><%= annotation %></li>
+      <% for annotation in @todo[file] %>
+        <li><%= annotation.to_s(:indent => 0, :tag => true) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2>FIXME</h2>
+<% for file in @fixme.keys %>
+  <div class="annotated_file">
+    <p><%= file %></p>
+    <ul>
+      <% for annotation in @fixme[file] %>
+        <li><%= annotation.to_s(:indent => 0, :tag => true) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2>OPTIMIZE</h2>
+<% for file in @optimize.keys %>
+  <div class="annotated_file">
+    <p><%= file %></p>
+    <ul>
+      <% for annotation in @optimize[file] %>
+        <li><%= annotation.to_s(:indent => 0, :tag => true) %></li>
       <% end %>
     </ul>
   </div>

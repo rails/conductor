@@ -2,7 +2,6 @@
 module Conductor::ApplicationHelper
 
   def tolk_link
-
     link_to_if(defined?(Tolk), "Tolk", '/tolk') do
       link_to("Tolk", "http://www.github.com/tolk/tolk",target: "_blank",confirm:"This extension is not installed." ) 
      end       
@@ -13,8 +12,6 @@ module Conductor::ApplicationHelper
       link_to("WebConsole", "https://github.com/rails/web-console",target: "_blank",confirm:"This extension is not installed." ) 
     end          
   end
-      
-  end
 
   def documentation_rails
     if File.exist?(File.join(Rails.root, 'doc', 'api','index.html'))
@@ -24,7 +21,7 @@ module Conductor::ApplicationHelper
     end
   end
   
-   def documentation_guides
+  def documentation_guides
     if File.exist?(File.join(Rails.root, 'doc', 'guides','index.html'))
       link_to_doc('Rails Guides','guides')
     else
@@ -44,5 +41,4 @@ module Conductor::ApplicationHelper
     url = File.join('/doc', folder, 'index.html')
     link_to text, url
   end
-
 end

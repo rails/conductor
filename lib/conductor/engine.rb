@@ -15,5 +15,9 @@ module Conductor
         mount Conductor::Engine => '/conductor'
       end
     end
+
+    initializer 'serve_docs' do |app|
+      app.config.middleware.use Rack::Static, :urls => ["/doc"]
+    end
   end
 end

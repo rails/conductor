@@ -11,7 +11,7 @@ module Conductor
       @gemfile = Gemfile.instance
       @gemfile.content = params[:gemfile][:content]
       @gemfile.save
-
+      flash[:success] = "The gemfile was successfully updated!"
       redirect_to gemfile_path
     end
   end

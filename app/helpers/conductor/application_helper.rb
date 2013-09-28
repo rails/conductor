@@ -27,6 +27,13 @@ module Conductor::ApplicationHelper
       link_to("Rails Guides", "http://guides.rubyonrails.org/",target: "_blank")
     end
   end
+  def documentation_app
+    if File.exist?(File.join(Rails.root, 'doc','app','index.html'))
+      link_to_doc('Your Application','app')
+    else
+      link_to("Your Application","#",confirm:"rake doc:app generates documentation for your application in doc/app." ) 
+    end
+  end
 
 def link_to_doc(text, folder)
   url = File.join(main_app.root_url, 'doc', folder, 'index.html')

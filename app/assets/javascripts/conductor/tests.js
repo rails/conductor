@@ -8,15 +8,15 @@ function doPoll(){
    }
 
 $(document).ready(function(){
-  // var editor = ace.edit("editor");
-  // var textarea = $('#test_content');
-  // textarea.hide();
+  var editor = ace.edit("editor");
+  var textarea = $('#test_body');
+  textarea.hide();
 
-  // editor.setTheme("ace/theme/textmate");
-  // editor.getSession().setMode("ace/mode/ruby");
-  // editor.getSession().setValue(textarea.val());
-  // editor.getSession().on('change', function(){
-  //   textarea.val(editor.getSession().getValue());
-  // });
+  editor.setTheme("ace/theme/textmate");
+  editor.getSession().setMode("ace/mode/ruby");
+  editor.getSession().setValue(textarea.val());
+  editor.getSession().on('change', function(){
+    textarea.val(editor.getSession().getValue());
+  });
    doPoll();
 });

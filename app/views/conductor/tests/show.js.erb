@@ -1,3 +1,6 @@
 $(document).ready(function(){
-	$("#test_body").html("<%=j @tests %>");
+	var editor = ace.edit("editor");
+	editor.selectAll();
+	editor.removeLines();
+	editor.insert("<%=j @tests %>");
 });

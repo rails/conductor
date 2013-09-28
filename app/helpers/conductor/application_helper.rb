@@ -15,7 +15,6 @@ module Conductor::ApplicationHelper
 
   def documentation_rails
     if File.exist?(File.join(Rails.root, 'doc', 'api','index.html'))
-      #link_to("Rails API", "file://#{File.join(Rails.root,'doc','api','index.html')}", target: "_blank" )
       link_to_doc('Rails API','api')
     else
       link_to("Rails API", "http://api.rubyonrails.org/",target: "_blank")

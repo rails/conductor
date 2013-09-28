@@ -20,6 +20,7 @@ module Conductor::ApplicationHelper
       link_to("Rails API", "http://api.rubyonrails.org/",target: "_blank")
     end
   end
+  
    def documentation_guides
     if File.exist?(File.join(Rails.root, 'doc', 'guides','index.html'))
       link_to_doc('Rails Guides','guides')
@@ -27,6 +28,7 @@ module Conductor::ApplicationHelper
       link_to("Rails Guides", "http://guides.rubyonrails.org/",target: "_blank")
     end
   end
+
   def documentation_app
     if File.exist?(File.join(Rails.root, 'doc','app','index.html'))
       link_to_doc('Your Application','app')
@@ -35,9 +37,9 @@ module Conductor::ApplicationHelper
     end
   end
 
-def link_to_doc(text, folder)
-  url = File.join(main_app.root_url, 'doc', folder, 'index.html')
-  %Q(<a href="#{url}">#{text}</a>).html_safe
-end
+  def link_to_doc(text, folder)
+    url = File.join(main_app.root_url, 'doc', folder, 'index.html')
+    %Q(<a href="#{url}">#{text}</a>).html_safe
+  end
 
 end

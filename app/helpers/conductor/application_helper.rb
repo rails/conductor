@@ -38,8 +38,8 @@ module Conductor::ApplicationHelper
   end
 
   def link_to_doc(text, folder)
-    url = File.join(main_app.root_url, 'doc', folder, 'index.html')
-    %Q(<a href="#{url}">#{text}</a>).html_safe
+    url = File.join('/doc', folder, 'index.html')
+    link_to text, url
   end
 
 end

@@ -23,8 +23,8 @@ module Conductor::ApplicationHelper
   end
 
 def link_to_doc(text, folder)
-  link = File.join(Rails.root, 'doc', folder, 'index.html')
-  %Q(<a href="file://#{link}">#{text}</a>).html_safe
+  url = File.join(main_app.root_url, 'doc', folder, 'index.html')
+  %Q(<a href="#{url}">#{text}</a>).html_safe
 end
 
 end

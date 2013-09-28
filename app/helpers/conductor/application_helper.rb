@@ -21,7 +21,7 @@ module Conductor::ApplicationHelper
     end
   end
   
-   def documentation_guides
+  def documentation_guides
     if File.exist?(File.join(Rails.root, 'doc', 'guides','index.html'))
       link_to_doc('Rails Guides','guides')
     else
@@ -41,5 +41,4 @@ module Conductor::ApplicationHelper
     url = File.join('/doc', folder, 'index.html')
     link_to text, url
   end
-
 end

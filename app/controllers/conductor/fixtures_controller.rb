@@ -15,6 +15,7 @@ module Conductor
       @fixture = Conductor::Fixture.new(params[:path])
       @fixture.content = params[:fixture][:content]
       @fixture.save
+      flash[:success] = "The fixture was successfully updated!"
       redirect_to fixtures_path
     end
 

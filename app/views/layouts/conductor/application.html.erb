@@ -78,6 +78,10 @@
         <h2>You&rsquo;re riding Ruby on Rails!</h2>
       </div>
 
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
       <div id="meat">
         <%= yield %>
       </div>

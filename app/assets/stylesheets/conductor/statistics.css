@@ -1,0 +1,28 @@
+table {
+	border-collapse:collapse;
+	margin-top: 25px;
+	width: 40%;
+}
+
+#stats{
+	width: 70%;
+}
+
+table tr th {
+	background-color: #4C9FE8;
+	color: white;
+}
+
+td, th {
+	border: 1px solid #4C9FE8;
+}
+
+tr td {
+  text-align: right;
+}
+
+tr.statistic th {
+	background-color: white;
+	color: black;
+}
+

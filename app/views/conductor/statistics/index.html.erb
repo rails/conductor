@@ -1,14 +1,16 @@
+<%= stylesheet_link_tag "conductor/statistics" %>
+
 <h1>Statistics</h1>
 
-<table>
+<table id="stats">
   <tr>
     <th>Name</th>
     <th>Lines</th>
     <th>LOC</th>
     <th>Classes</th>
     <th>Methods</th>
-    <th>M/C</th>
-    <th>LOC/M</th>
+    <th>Methods/class</th>
+    <th>LOC/method</th>
   </tr>
   <% @stats.lines.each do |line| %>
     <tr class="statistic">
@@ -38,9 +40,7 @@
   <% end %>
 </table>
 
-<br>
 <table>
-<tr class="statistic"><th>Code LOC</th><td><%= @stats.code_loc %></td></tr>
-<tr class="statistic"><th>Test LOC</th><td><%= @stats.tests_loc %></td></tr>
-<tr class="statistic"><th>Code to Test Ratio</th><td>1:<%= @stats.code_to_test %></td></tr>
+<tr><th>Code LOC</th><th>Test LOC</th><th>Code to Test Ratio</th></tr>
+<tr><td><%= @stats.code_loc %></td><td><%= @stats.tests_loc %></td><td>1:<%= @stats.code_to_test %></td></tr>
 </table>

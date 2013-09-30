@@ -1,37 +1,59 @@
+<%= stylesheet_link_tag "conductor/annotations" %>
+
 <h1>Notes</h1>
 
-<h2>TODO</h2>
-<% for file in @todo.keys %>
-  <div class="annotated_file">
-    <p><%= file %></p>
-    <ul>
-      <% for annotation in @todo[file] %>
-        <li><%= annotation.to_s(:indent => 0, :tag => true) %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 
-<h2>FIXME</h2>
-<% for file in @fixme.keys %>
-  <div class="annotated_file">
-    <p><%= file %></p>
-    <ul>
-      <% for annotation in @fixme[file] %>
-        <li><%= annotation.to_s(:indent => 0, :tag => true) %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<div id="TODO">
+  <h2>TODO</h2>
+  <% unless @todo.empty? %>
+    <% for file in @todo.keys %>
+      <div class="annotated_file">
+        <p><%= file %></p>
+        <ul>
+          <% for annotation in @todo[file] %>
+            <li><%= annotation.to_s(:indent => 0) %></li>
+          <% end %>
+        </ul>
+    <% end %>
+  <% else %>
+    There are not TODO notes to show.
+  <% end %>
+</div>
 
-<h2>OPTIMIZE</h2>
-<% for file in @optimize.keys %>
-  <div class="annotated_file">
-    <p><%= file %></p>
-    <ul>
-      <% for annotation in @optimize[file] %>
-        <li><%= annotation.to_s(:indent => 0, :tag => true) %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+
+<div id="FIXME">
+  <h2>FIXME</h2>
+  <% unless @fixme.empty? %>
+    <% for file in @fixme.keys %>
+      <div class="annotated_file">
+        <p><%= file %></p>
+        <ul>
+          <% for annotation in @fixme[file] %>
+            <li><%= annotation.to_s(:indent => 0) %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% else %>
+    There are not FIXME notes to show.
+  <% end %>
+</div>
+
+<div id="OPTIMIZE">
+  <h2>OPTIMIZE</h2>
+  <% unless @optimize.empty? %>
+    <% for file in @optimize.keys %>
+      <div class="annotated_file">
+        <p><%= file %></p>
+        <ul>
+          <% for annotation in @optimize[file] %>
+            <li><%= annotation.to_s(:indent => 0) %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% else %>
+    There are not OPTIMIZE notes to show.
+  <% end %> 
+</div>
+

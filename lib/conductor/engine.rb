@@ -1,4 +1,5 @@
 require "jquery/rails/engine"
+require "rails/all"
 
 module Conductor
   class Engine < Rails::Engine
@@ -18,6 +19,10 @@ module Conductor
 
     initializer 'serve_docs' do |app|
       app.config.middleware.use Rack::Static, :urls => ["/doc"]
+    end
+
+    initializer 'load_generators' do |app|
+      app.load_generators
     end
   end
 end

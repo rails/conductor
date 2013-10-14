@@ -8,7 +8,7 @@ To install add the following line to the Gemfile in your Rails  application :
 
 ```ruby
 group :development do
-  gem 'conductor', :github => 'NewRosies/conductor'
+  gem 'conductor', github: 'rails/conductor'
 end
 ```
 

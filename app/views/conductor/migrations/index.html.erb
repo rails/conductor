@@ -1,0 +1,24 @@
+<h1>Migrations</h1>
+
+<table id="stats">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+  <% @migrations.each do |line| %>
+    <tr class="statistic">
+      <td><%= line[:id] %></td>
+      <td><%= line[:name] %></td>
+      <td><%= line[:status] %></td>
+      <td>
+        <% if line[:status] == "up" %>
+          <%= button_to "Down", down_migration_path(line[:id]), method: :put, data: { disable_with: 'Migrating...' } %>
+        <% else %>
+          <%= button_to "Up", up_migration_path(line[:id]), method: :put, data: { disable_with: 'Migrating...' } %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

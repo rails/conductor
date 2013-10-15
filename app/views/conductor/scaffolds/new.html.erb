@@ -6,10 +6,10 @@
   starting point for your RESTful, resource-oriented application.
 </p>
 
-<%= form_for(:scaffold, :url => scaffolds_path) do |form| %>
+<%= form_for(:scaffold, :url => scaffolds_path) do |f| %>
   <p>
-    <%= form.label :name, "Name <small>(singular, ex: Post, Person, Product)</small>".html_safe %><br />
-    <%= form.text_field :name %>
+    <%= f.label :name, "Name <small>(singular, ex: Post, Person, Product)</small>".html_safe %><br />
+    <%= f.text_field :name %>
   </p>
 
   <h1>Fields</h1>
@@ -33,19 +33,19 @@
   <h1>Options</h1>
 
   <p>
-    <%= form.check_box :skip_namespace %> Skip namespace<br />
-    <%= form.check_box :skip_stylesheets %> Skip stylesheets<br />
-    <%= form.check_box :skip_assets %> Skip assets<br />
-    <%= form.check_box :skip_indexes %> Skip indexes<br />
-    <%= form.check_box :skip_fixture %> Skip fixture<br />
-    <%= form.check_box :skip_helper %> Skip helper<br />
-    <%= form.check_box :skip_jbuilder %> Skip jbuilder<br />
-    <%= form.check_box :skip_timestamps %> Skip timestamps<br />
-    <%= form.check_box :skip_migration %> Skip migration
+    <%= f.check_box :skip_namespace %> <%= f.label :skip_namespace %><br />
+    <%= f.check_box :skip_stylesheets %> <%= f.label :skip_stylesheets %> <br />
+    <%= f.check_box :skip_assets %> <%= f.label :skip_assets %> <br />
+    <%= f.check_box :skip_indexes %> <%= f.label :skip_indexes %> <br />
+    <%= f.check_box :skip_fixture %> <%= f.label :skip_fixture %> <br />
+    <%= f.check_box :skip_helper %> <%= f.label :skip_helper %> <br />
+    <%= f.check_box :skip_jbuilder %> <%= f.label :skip_jbuilder %> <br />
+    <%= f.check_box :skip_timestamps %> <%= f.label :skip_timestamps %> <br />
+    <%= f.check_box :skip_migration %> <%= f.label :skip_migration %>
   </p>
 
   <p>
-    <%= form.submit "Create scaffold" %>
+    <%= f.submit "Create scaffold" %>
   </p>
 <% end %>
 

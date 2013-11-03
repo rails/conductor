@@ -1,7 +1,14 @@
 Conductor::Engine.routes.draw do
   resources :scaffolds, :routes, :annotations, :statistics, :resources, :models, :app_controllers, :mailers
   resource :gemfile, :database
-  
+
+  resources :migrations, only: :index do
+    member do
+      put :up
+      put :down
+    end
+  end
+
   resource :test, only: [] do
   	collection do
   		get :run

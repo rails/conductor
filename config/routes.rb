@@ -11,8 +11,11 @@ Conductor::Engine.routes.draw do
 
   resource :test, only: [] do
   	collection do
-  		get :run
-  		get :show
+      get :show
+  		get :run_all
+      get :run_model
+      get :run_controller
+      get :run_integration
   	end
   end
 

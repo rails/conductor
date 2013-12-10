@@ -19,10 +19,6 @@ module Conductor
     end
  
     def save
-       puts "*"*100
-       puts @path
-       puts @content
-
       !!File.open(FIXTURES_PATH.join(@path), 'w') { |file| file.write(@content) }
     end
     

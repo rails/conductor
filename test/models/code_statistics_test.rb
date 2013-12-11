@@ -7,6 +7,12 @@ module Conductor
     end
 
     def test_lines
+      assert 2, @stats.lines.size
+      assert 'Models', @stats.lines[0][:name]
+      assert 'Controllers', @stats.lines[1][:name]
+    end
+
+    def test_line
       models = @stats.lines.first
 
       assert 'Models', models[:name]

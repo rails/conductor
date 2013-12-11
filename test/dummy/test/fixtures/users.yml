@@ -1,5 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
   firstname: MyString
   last: MyString
@@ -15,4 +13,3 @@ two:
   address: MyString
   phone: MyString
   gender: MyString
-

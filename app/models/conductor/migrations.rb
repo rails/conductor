@@ -3,7 +3,6 @@ require 'singleton'
 module Conductor
   class Migrations
     class MigrationError < StandardError;end
-
     def self.list
       unless ActiveRecord::Base.connection.table_exists?(ActiveRecord::Migrator.schema_migrations_table_name)
         raise MigrationError.new('Schema migrations table does not exist yet.')

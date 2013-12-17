@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.author  = 'David Heinemeier Hansson'
   s.email   = 'david@loudthinking.com'
   s.summary = 'Web UI for Rails development'
+  s.license = 'MIT'
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]

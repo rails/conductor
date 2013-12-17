@@ -12,5 +12,11 @@ module Conductor
         end
       end
     end
+    def test_migration_list
+      @migration = Migrations.list.first
+      assert_equal "20130827165249", @migration[:id]
+      assert_equal "********** NO FILE **********", @migration[:name]
+      assert_equal "up", @migration[:status]
+    end  
   end
 end

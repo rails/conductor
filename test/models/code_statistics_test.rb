@@ -28,16 +28,16 @@ module Conductor
       total = @stats.total_line
 
       assert_equal "Total", total[:name]
-      assert_equal 527, total[:lines]
-      assert_equal 428, total[:codelines]
-      assert_equal 22, total[:classes]
-      assert_equal 57, total[:methods]
+      assert_equal 537, total[:lines]
+      assert_equal 437, total[:codelines]
+      assert_equal 23, total[:classes]
+      assert_equal 58, total[:methods]
       assert_equal 2, total[:m_over_c]
       assert_equal 5, total[:loc_over_m]
     end
 
     def test_code_loc
-      assert_equal 428, @stats.code_loc
+      assert_equal 437, @stats.code_loc
     end
 
     def test_tests_loc

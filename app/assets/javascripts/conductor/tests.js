@@ -1,9 +1,6 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-
 function doPoll(){
     $.getScript('/conductor/test.js', function(data) {
-        setTimeout(doPoll, 500);
+        setTimeout(doPoll, 300);
     });
    }
 

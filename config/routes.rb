@@ -18,7 +18,7 @@ Conductor::Engine.routes.draw do
       get :run_integration
   	end
   end
-
+  get "bundler/show"
   get "welcome/index"
   resources :fixtures, except: [:edit, :update ,:show]
   get 'fixtures/*path', to: 'fixtures#edit', constraints: { path: /.*/ }

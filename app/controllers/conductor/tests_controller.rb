@@ -13,17 +13,17 @@ module Conductor
   	end
     
     def run_model
-      spawn("rake test:models > tmp/test.log")
+      run_test("rake test:models")
       redirect_to test_path
     end
     
     def run_controller
-      spawn("rake test:controllers > tmp/test.log")
+      run_test("rake test:controllers")
       redirect_to test_path
     end
     
     def run_integration
-      spawn("rake test:integration > tmp/test.log")
+      run_test("rake test:integration")
       redirect_to test_path
     end
     def run_test(cmd)

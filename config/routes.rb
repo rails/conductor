@@ -1,11 +1,16 @@
 Conductor::Engine.routes.draw do
   resources :scaffolds, :routes, :annotations, :statistics, :resources, :models, :app_controllers, :mailers
-  resource :gemfile, :database
+  resource  :database
 
   resources :migrations, only: :index do
     member do
       put :up
       put :down
+    end
+  end
+  resource :gemfile do
+    collection do
+      post :install
     end
   end
 
@@ -18,7 +23,6 @@ Conductor::Engine.routes.draw do
       get :run_integration
   	end
   end
-  get "bundler/show"
   get "welcome/index"
   resources :fixtures, except: [:edit, :update ,:show]
   get 'fixtures/*path', to: 'fixtures#edit', constraints: { path: /.*/ }

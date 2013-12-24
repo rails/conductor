@@ -1,9 +1,0 @@
-<h1>Bundler </h1>
-<div id="editor" class="bundler">
-</div>
-<%= text_area_tag :bundler_body, @bundler %>
-
-<%= content_for :scripts do %>
-  <%= javascript_include_tag "conductor/editor" %>
-  <%= javascript_include_tag "conductor/bundler" %>
-<% end %>

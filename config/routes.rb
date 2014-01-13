@@ -8,9 +8,11 @@ Conductor::Engine.routes.draw do
       put :down
     end
   end
+  
   resource :gemfile do
     collection do
       post :install
+      get :check_install
     end
   end
 
@@ -21,6 +23,7 @@ Conductor::Engine.routes.draw do
       get :run_model
       get :run_controller
       get :run_integration
+      get :websocket_test
   	end
   end
   get "welcome/index"

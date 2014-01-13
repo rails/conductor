@@ -2,6 +2,10 @@ require 'rails/generators'
 
 module Conductor
   class AppControllersController < ApplicationController
+    include Tubesock::Hijack
+    require 'pty'
+
+
     def new
       @page_title = 'Controllers'
     end
@@ -18,7 +22,6 @@ module Conductor
       end
 
       redirect_to(new_app_controller_url)
-    end
-    
+    end    
   end
 end

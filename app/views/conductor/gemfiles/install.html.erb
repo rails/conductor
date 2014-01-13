@@ -1,8 +1,6 @@
 <h1>Install gems </h1>
 <div id="editor" class="installgems">
 </div>
-<%= text_area_tag :installgems_body, @install %>
-
 <%= content_for :scripts do %>
   <%= javascript_include_tag "conductor/editor" %>
   <%= javascript_include_tag "conductor/installgems" %>

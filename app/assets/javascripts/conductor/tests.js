@@ -1,18 +1,10 @@
-function doPoll(){
-    $.getScript('/conductor/test.js', function(data) {
-        setTimeout(doPoll, 300);
-    });
-   }
-
 $(document).ready(function(){
+  var ws = new WebSocket("ws://" + location.host + "/conductor/test/websocket_test");
   var editor = ace.edit("editor");
-  var textarea = $('#test_body');
   editor.renderer.setShowGutter(false);
   editor.setReadOnly(true);
-  textarea.hide();
-
+  ws.onmessage = function(e) { 
+    editor.insert(e.data + "\n"); };
   editor.setTheme("ace/theme/textmate");
   editor.getSession().setMode("ace/mode/ruby");
-  editor.getSession().setValue(textarea.val());
-  doPoll();
-});
+  });

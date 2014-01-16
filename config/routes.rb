@@ -1,6 +1,6 @@
 Conductor::Engine.routes.draw do
   resources :scaffolds, :routes, :annotations, :statistics, :resources, :models, :app_controllers, :mailers
-  resource  :database
+
 
   resources :migrations, only: :index do
     member do
@@ -17,6 +17,15 @@ Conductor::Engine.routes.draw do
     collection do
       post :install
       get :check_install
+    end
+  end
+  resource :database do
+    collection do
+      post :drop
+      post :seed
+      post :setup
+      get :websocket_database
+      get :output
     end
   end
 

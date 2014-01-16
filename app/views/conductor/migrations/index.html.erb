@@ -22,3 +22,7 @@
     </tr>
   <% end %>
 </table>
+
+<%= form_tag(rollback_migrations_path) do %>
+<%= submit_tag "Rollback" %>
+<% end %>

@@ -1,5 +1,5 @@
 require_dependency "conductor/application_controller"
-
+include Tubesock::Hijack
 module Conductor
   class MigrationsController < ApplicationController
     def index
@@ -26,6 +26,11 @@ module Conductor
       end
 
       redirect_to migrations_path
+    end
+    def rollback
+    end
+    def websocket_migration
+      open_socket("rake db:rollback")
     end
 
   end

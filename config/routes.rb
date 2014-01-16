@@ -7,6 +7,10 @@ Conductor::Engine.routes.draw do
       put :up
       put :down
     end
+    collection do
+      post :rollback
+      get :websocket_migration
+    end
   end
   
   resource :gemfile do

@@ -3,6 +3,7 @@ include Tubesock::Hijack
 module Conductor
   class MigrationsController < ApplicationController
     def index
+      @version = ActiveRecord::Migrator.current_version
       @migrations = Migrations.list
     end
 

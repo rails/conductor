@@ -24,5 +24,9 @@ module Conductor
     initializer 'load_generators' do |app|
       app.load_generators
     end
+    initializer 'conductor.add middleware' do |app|
+      app.middleware.use Conductor::Middleware
+    end
+
   end
 end

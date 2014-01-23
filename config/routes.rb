@@ -44,4 +44,6 @@ Conductor::Engine.routes.draw do
   get 'fixtures/*path', to: 'fixtures#edit', constraints: { path: /.*/ }
   patch 'fixtures/*path', to: 'fixtures#update', constraints: { path: /.*/ }
   root "welcome#index"
+  get '/', :to => 'editor#index'
+  post '/save', :to => 'editor#save', :as => 'save_editor'
 end

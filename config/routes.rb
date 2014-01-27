@@ -12,7 +12,7 @@ Conductor::Engine.routes.draw do
       get :websocket_migration
     end
   end
-  
+
   resource :gemfile do
     collection do
       post :install
@@ -30,20 +30,24 @@ Conductor::Engine.routes.draw do
   end
 
   resource :test, only: [] do
-  	collection do
+    collection do
       get :show
-  		get :run_all
+      get :run_all
       get :run_model
       get :run_controller
       get :run_integration
       get :websocket_test
-  	end
+    end
   end
-  get "welcome/index"
+
   resources :fixtures, except: [:edit, :update ,:show]
   get 'fixtures/*path', to: 'fixtures#edit', constraints: { path: /.*/ }
   patch 'fixtures/*path', to: 'fixtures#update', constraints: { path: /.*/ }
-  root "welcome#index"
+
+  # Routes for Editor Plugin
   get '/', :to => 'editor#index'
   post '/save', :to => 'editor#save', :as => 'save_editor'
+
+  get "welcome/index"
+  root "welcome#index"
 end

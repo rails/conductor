@@ -8,7 +8,6 @@ module Conductor
     yield self
   end
 
-  
   configure do |config|
     config.enable_editor = true
   end

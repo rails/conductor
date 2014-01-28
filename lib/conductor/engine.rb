@@ -16,6 +16,10 @@ module Conductor
       app.routes.prepend do
         mount Conductor::Engine => '/conductor'
       end
+
+      app.routes.append do
+        get '/:anything', :to => 'conductor/scaffolds#new', :constraints => {:anything => /.*/}
+      end
     end
 
     initializer 'serve_docs' do |app|

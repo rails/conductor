@@ -1,7 +1,6 @@
 Conductor::Engine.routes.draw do
   resources :scaffolds, :routes, :annotations, :statistics, :resources, :models, :app_controllers, :mailers
 
-
   resources :migrations, only: :index do
     member do
       put :up
@@ -50,4 +49,6 @@ Conductor::Engine.routes.draw do
 
   get "welcome/index"
   root "welcome#index"
+
+  # Routes for Generator Plugin
 end

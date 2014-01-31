@@ -1,5 +1,4 @@
 require_dependency "conductor/application_controller"
-require 'pty'
 include Tubesock::Hijack
 module Conductor
   class TestsController < ApplicationController

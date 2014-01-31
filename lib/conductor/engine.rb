@@ -1,5 +1,7 @@
 require "jquery/rails/engine"
 require "rails/all"
+require "conductor/middleware"
+require 'conductor/filter'
 
 module Conductor
   class Engine < Rails::Engine
@@ -15,6 +17,10 @@ module Conductor
       app.routes.prepend do
         mount Conductor::Engine => '/conductor'
       end
+
+      app.routes.append do
+        get '/:anything', :to => 'conductor/scaffolds#new', :constraints => {:anything => /.*/}
+      end
     end
 
     initializer 'serve_docs' do |app|
@@ -23,6 +29,40 @@ module Conductor
 
     initializer 'load_generators' do |app|
       app.load_generators
+    end
+
+    initializer 'conductor.add middleware' do |app|
+      app.middleware.use Conductor::Middleware
+    end
+
+    ActiveSupport.on_load(:action_view) do
+      if Conductor.config.enable_editor
+        module ::ActionView
+          class PartialRenderer
+            def render_partial_with_filename_caching
+              (Thread.current[Conductor::PARTIAL_FILENAMES] ||= []) << @template unless @view.controller.class.name.starts_with?('Conductor::')
+              render_partial_without_filename_caching
+            end
+            alias_method_chain :render_partial, :filename_caching
+          end
+
+          class TemplateRenderer
+            def render_template_with_filename_caching(template, layout_name = nil, locals = {})
+              Thread.current[Conductor::VIEW_FILENAME] = template.virtual_path if @view.controller.try(:request).try(:format).try(:html?) && !@view.controller.class.name.starts_with?('Conductor::')
+              render_template_without_filename_caching template, layout_name, locals
+            end
+            alias_method_chain :render_template, :filename_caching
+          end
+        end
+      end
+    end
+
+    ActiveSupport.on_load(:action_controller) do
+      if Conductor.config.enable_scenario_recorder
+        class ::ActionController::Base
+          before_filter Conductor::Filter
+        end
+      end
     end
   end
 end

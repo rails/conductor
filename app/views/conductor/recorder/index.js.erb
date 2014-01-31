@@ -1,0 +1,1 @@
+$('#<%= Conductor::CONTAINER %> div.spec').toggle().html('<pre><%= escape_javascript(flash[Conductor::SPEC]) + '\n  end' if flash[Conductor::SPEC] %></pre><div align="right"><a href="/conductor/recorder/destroy" data-remote="true" data-method="delete" class="clear">Clear</a></div></div>')

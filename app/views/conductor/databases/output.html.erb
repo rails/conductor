@@ -1,0 +1,7 @@
+<h1>Output </h1>
+<div id="editor" class="tests">
+</div>
+<%= content_for :scripts do %>
+  <%= javascript_include_tag "conductor/editor" %>
+  <%= javascript_include_tag "conductor/db_task" %>
+<% end %>

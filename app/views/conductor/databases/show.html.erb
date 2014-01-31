@@ -8,7 +8,21 @@
   <p>
     <%= f.submit "Save Database" %>
   </p>
+
 <% end %>
+<%= form_tag(database_path) do %>
+<%= submit_tag "Create" %>
+<% end %>
+<%= form_tag(drop_database_path) do %>
+<%= submit_tag "Drop" %>
+<% end %>
+<%= form_tag(seed_database_path) do %>
+<%= submit_tag "Seed" %>
+<% end %>
+<%= form_tag(setup_database_path) do %>
+<%= submit_tag "Setup" %>
+<% end %>
+
 
 <%= content_for :scripts do %>
   <%= javascript_include_tag "conductor/editor" %>

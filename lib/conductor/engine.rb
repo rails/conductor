@@ -1,6 +1,7 @@
 require "jquery/rails/engine"
 require "rails/all"
 require "conductor/middleware"
+require 'conductor/filter'
 
 module Conductor
   class Engine < Rails::Engine
@@ -52,6 +53,14 @@ module Conductor
             end
             alias_method_chain :render_template, :filename_caching
           end
+        end
+      end
+    end
+
+    ActiveSupport.on_load(:action_controller) do
+      if Conductor.config.enable_scenario_recorder
+        class ::ActionController::Base
+          before_filter Conductor::Filter
         end
       end
     end

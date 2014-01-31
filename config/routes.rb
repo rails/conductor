@@ -46,9 +46,10 @@ Conductor::Engine.routes.draw do
   # Routes for Editor Plugin
   get 'editor/', :to => 'editor#index'
   post 'editor/save', :to => 'editor#save', :as => 'save_editor'
+  # Routes for Recorder Plugin 
+  get 'recorder/', :to => 'recorder#index'
+  delete 'recorder/destroy', :to => 'recorder#destroy'
 
   get "welcome/index"
   root "welcome#index"
-
-  # Routes for Generator Plugin
 end

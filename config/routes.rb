@@ -42,6 +42,10 @@ Conductor::Engine.routes.draw do
   resources :fixtures, except: [:edit, :update ,:show]
   get 'fixtures/*path', to: 'fixtures#edit', constraints: { path: /.*/ }
   patch 'fixtures/*path', to: 'fixtures#update', constraints: { path: /.*/ }
+  resources :codes, except: [:edit, :update ,:show]
+  get 'codes/edit/*path', to: 'codes#edit', constraints: { path: /.*/ }, :as => 'edit_code'
+  get 'codes/*path', to: 'codes#index', constraints: { path: /.*/ }
+  patch 'codes/*path', to: 'codes#update', constraints: { path: /.*/ }, :as => 'update_code'
 
   # Routes for Editor Plugin
   get 'editor/', :to => 'editor#index'

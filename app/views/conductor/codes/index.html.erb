@@ -1,0 +1,19 @@
+<h1>Listing Files</h1>
+<table>
+  <tr>
+    <th>File Name</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+<% @files.each do |path| %>
+	<%if File.directory?(path)%>
+  	<tr>
+   		<td><%= link_to File.basename(path), code_path(path) %></td>
+    </tr>
+  <%else%>
+  	<tr>
+      <td><%= link_to File.basename(path), edit_code_path(path) %></td>
+    </tr>
+	<%end%>
+<% end %>
+</table>

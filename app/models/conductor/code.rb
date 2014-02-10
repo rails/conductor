@@ -5,7 +5,7 @@ module Conductor
     end
 
     def content
-      @content ||= File.open(Rail.root.join(@path)).read
+      @content ||= File.open(File.join("/",@path)).read
     end
 
     def content=(new_content)

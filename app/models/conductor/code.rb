@@ -4,6 +4,10 @@ module Conductor
       @path = path
     end
 
+    def path_name
+      Pathname.new(@path)
+    end
+
     def content
       @content ||= File.open(File.join("/",@path)).read
     end

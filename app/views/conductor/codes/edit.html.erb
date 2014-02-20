@@ -1,5 +1,4 @@
-<% title = Pathname.new(@code.path) %>
-<h1><%= title.basename %></h3>
+<h1><%= @code.path_name %></h3>
 <%= form_for(:code, url: update_code_path(@code.path), method: :patch) do |f| %>
   <p>
     <div id="editor"></div>

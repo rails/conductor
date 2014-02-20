@@ -4,7 +4,7 @@
     <th>File Name</th>
     <th colspan="3"></th>
   </tr>
- 
+
 <% @fixtures.each do |file| %>
   <tr>
     <td><%= link_to File.basename(file), fixture_path(file) %></td>

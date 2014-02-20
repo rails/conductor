@@ -4,15 +4,12 @@ module Conductor
   class AppControllersController < ApplicationController
     include Tubesock::Hijack
     require 'pty'
-
-
     def new
       @page_title = 'Controllers'
     end
 
     def create
       @form = ControllerGeneratorForm.new(params[:app_controller])
-
       if @form.valid?
         Rails.logger.info @form.command_line
         @form.run
@@ -20,8 +17,7 @@ module Conductor
       else
         flash[:error] = "Cannot create the controller! Please verify the information"
       end
-
       redirect_to(new_app_controller_url)
-    end    
+    end
   end
 end

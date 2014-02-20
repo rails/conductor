@@ -24,7 +24,7 @@ module Conductor
             begin
               PTY.spawn( command) do |stdin, stdout, pid|
                 begin
-                  stdin.each do |line| 
+                  stdin.each do |line|
                     tubesock.send_data line
                     sleep 2
                   end
@@ -35,9 +35,9 @@ module Conductor
               end
             rescue PTY::ChildExited
               puts "The child process exited!"
-            end 
+            end
           end
         end
-      end 
+      end
   end
 end

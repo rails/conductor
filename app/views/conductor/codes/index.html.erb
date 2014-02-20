@@ -1,18 +1,38 @@
+<%= stylesheet_link_tag "conductor/code" %>
 <h1>Listing Files</h1>
-<table>
+<table class="codetable">
   <tr>
+    <td colspan="1">
     <th>File Name</th>
-    <th colspan="3"></th>
+    <th>Modified</th>
   </tr>
   <% @files.each do |path| %>
     <%if File.directory?(path)%>
       <tr>
+        <td class="dir_icon"></td>
         <td><%= link_to File.basename(path), code_path(path) %></td>
+        <td><%= File.new(path).mtime.to_s %></td>
       </tr>
     <%else%>
       <tr>
+        <td class="file_icon"></td>
         <td><%= link_to File.basename(path), edit_code_path(path) %></td>
+        <td><%= File.new(path).mtime.to_s %></td>
       </tr>
     <%end%>
   <%end%>
 </table>
+
+<a id ="new_file" >+New file</a>
+<div id="new_file_form" >
+<%= form_for :code, url: codes_path do |f| %>
+  <p>
+    <%= f.text_field :name %>
+    <%= f.hidden_field :path, :value => @path %>
+  </p>
+  <p>
+    <%= f.submit "Save File" %>
+  </p>
+<% end %>
+</div>
+<%= javascript_include_tag "conductor/index_code" %>

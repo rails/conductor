@@ -17,7 +17,7 @@ module Conductor
     end
 
     def save
-      !!File.open(Rails.root.join(@path), 'w') { |file| file.write(@content) }
+      !!File.open(File.join('/',@path), 'w') { |file| file.write(@content) }
     end
 
     def self.find_by_path(_path=Rails.root)
@@ -31,7 +31,7 @@ module Conductor
         if File.file?(File.join("/",path,dir))
           @dir[1]<<File.join("/",path,dir)
         end
-      end       
+      end
       return @dir.flatten
     end
   end

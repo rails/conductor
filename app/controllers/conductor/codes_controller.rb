@@ -17,13 +17,13 @@ module Conductor
       @code.content = params[:code][:content]
       @code.save
       flash[:success] = "The File was successfully updated!"
-      redirect_to codes_path
+      redirect_to edit_code_path(@path)
     end
 
     def create
       @code = Conductor::Code.new(params[:code][:path] + "/" + params[:code][:name])
       @code.save
-      redirect_to codes_path
+      redirect_to edit_code_path(@path)
     end
 
     private

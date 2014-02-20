@@ -5,7 +5,7 @@ module Conductor
   	def show
       @database = Database.instance
     end
-        
+
     def update
       @database = Database.instance
       @database.content = params[:database][:content]
@@ -15,7 +15,7 @@ module Conductor
     end
     def output
     end
-   
+
     def drop
       session[:conductor_command_db] = "bundle exec rake db:drop"
       redirect_to output_database_path

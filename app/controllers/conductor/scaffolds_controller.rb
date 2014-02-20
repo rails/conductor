@@ -1,5 +1,4 @@
 require 'rails/generators'
-
 module Conductor
   class ScaffoldsController < ApplicationController
     def new

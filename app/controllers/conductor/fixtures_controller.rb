@@ -8,10 +8,10 @@ module Conductor
 
     def edit
       @fixture = Conductor::Fixture.new(params[:path])
-      
+
     end
 
-     def update
+    def update
       @fixture = Conductor::Fixture.new(params[:path])
       @fixture.content = params[:fixture][:content]
       @fixture.save

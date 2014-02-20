@@ -39,7 +39,8 @@
           <ul class="links">
             <li><%= link_to("Databases", database_path) %></li>
             <li><%= link_to("Migrations", migrations_path) %></li>
-            <li><%= link_to("Fixtures", fixtures_path) %></li>
+            <li><%= link_to("Fixtures", code_path(File.join(Rails.root,'test','fixtures'))) %></li>
+            <li><%= link_to("Code Editor", codes_path) %></li>
             <li><%= link_to("Gems", gemfile_path) %></li>
             <li><%= link_to("Install Gems",install_gemfile_path,:method=> :post) %></li>
           </ul>
@@ -60,7 +61,7 @@
             <li><%= documentation_app %></li>
             <li><%= documentation_rails %></li>
             <li><%= documentation_guides%></li>
-            <li><%= link_to("Ruby Core", "http://www.ruby-doc.org/core-2.0.0/",target:"_blank") %></li>            
+            <li><%= link_to("Ruby Core", "http://www.ruby-doc.org/core-2.0.0/",target:"_blank") %></li>
             <li><%= link_to("Ruby stdlib", "http://www.ruby-doc.org/stdlib-2.0.0/",target:"_blank") %></li>
           </ul>
         </li>

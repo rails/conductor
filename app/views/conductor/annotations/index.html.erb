@@ -1,8 +1,5 @@
 <%= stylesheet_link_tag "conductor/annotations" %>
-
 <h1>Notes</h1>
-
-
 <div id="TODO">
   <h2>TODO</h2>
   <% unless @todo.empty? %>
@@ -19,8 +16,6 @@
     There are not TODO notes to show.
   <% end %>
 </div>
-
-
 <div id="FIXME">
   <h2>FIXME</h2>
   <% unless @fixme.empty? %>
@@ -54,6 +49,6 @@
     <% end %>
   <% else %>
     There are not OPTIMIZE notes to show.
-  <% end %> 
+  <% end %>
 </div>
 

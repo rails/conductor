@@ -18,6 +18,6 @@ module Conductor
 
       redirect_to(new_resource_url)
     end
-    
+
   end
 end

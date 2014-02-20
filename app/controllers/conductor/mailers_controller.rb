@@ -3,7 +3,6 @@ require 'rails/generators'
 module Conductor
   class MailersController < ApplicationController
     def new
-
     end
 
     def create
@@ -19,6 +18,6 @@ module Conductor
 
       redirect_to(new_mailer_url)
     end
-    
+
   end
 end

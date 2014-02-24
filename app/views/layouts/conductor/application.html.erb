@@ -41,7 +41,7 @@
             <li><%= link_to("Migrations", migrations_path) %></li>
             <li><%= link_to("Fixtures", code_path(File.join(Rails.root,'test','fixtures'))) %></li>
             <li><%= link_to("Code Editor", codes_path) %></li>
-            <li><%= link_to("Gems", gemfile_path) %></li>
+            <li><%= link_to("Gems",edit_code_path(File.join(Rails.root,'Gemfile'))) %></li>
             <li><%= link_to("Install Gems",install_gemfile_path,:method=> :post) %></li>
           </ul>
         </li>

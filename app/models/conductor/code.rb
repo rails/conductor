@@ -5,7 +5,7 @@ module Conductor
     end
 
     def path_name
-      Pathname.new(@path)
+      Pathname.new(@path).basename
     end
 
     def content

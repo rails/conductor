@@ -39,9 +39,6 @@ Conductor::Engine.routes.draw do
     end
   end
 
-  resources :fixtures, except: [:edit, :update ,:show]
-  get 'fixtures/*path', to: 'fixtures#edit', constraints: { path: /.*/ }
-  patch 'fixtures/*path', to: 'fixtures#update', constraints: { path: /.*/ }
   #Routes for Codes
   resources :codes, except: [:edit, :update ,:show]
   get 'codes/edit/*path', to: 'codes#edit', constraints: { path: /.*/ }, :as => 'edit_code'

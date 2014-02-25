@@ -28,11 +28,12 @@ module Conductor
 
       redirect_to migrations_path
     end
+
     def rollback
     end
+
     def websocket_migration
       open_socket("rake db:rollback")
     end
-
   end
 end

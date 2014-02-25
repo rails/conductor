@@ -18,6 +18,5 @@ module Conductor
 
       redirect_to(new_mailer_url)
     end
-
   end
 end

@@ -3,7 +3,12 @@ include Tubesock::Hijack
 module Conductor
   class TestsController < ApplicationController
   	def show
-  	end
+      @content=nil
+      unless env['rack.hijack?']
+        spawn("> log/command.log")
+        redirect_to show_no_websocket_test_path
+      end
+    end
 
   	def run_all
       session[:conductor_command_test] = "rake test"
@@ -24,8 +29,18 @@ module Conductor
       session[:conductor_command_test] = "rake test:integration"
       redirect_to test_path
     end
+
     def websocket_test
-      open_socket(session[:conductor_command_test] || "rake test")
+      begin
+        open_socket(session[:conductor_command_test] || "rake test")
+      rescue Tubesock::HijackNotAvailable
+        redirect_to show_no_websocket_test_path
+      end
+    end
+
+    def show_no_websocket
+      spawn(session[:conductor_command_test] + "> log/command.log")
+      @content = File.read(File.join(Rails.root,'log','command.log'))
     end
   end
 end

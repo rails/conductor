@@ -16,6 +16,7 @@ Conductor::Engine.routes.draw do
     collection do
       post :install
       get :check_install
+      get :install_no_websocket
     end
   end
   resource :database do
@@ -25,6 +26,7 @@ Conductor::Engine.routes.draw do
       post :setup
       get :websocket_database
       get :output
+      get :output_no_websocket
     end
   end
 
@@ -36,6 +38,7 @@ Conductor::Engine.routes.draw do
       get :run_controller
       get :run_integration
       get :websocket_test
+      get :show_no_websocket
     end
   end
 

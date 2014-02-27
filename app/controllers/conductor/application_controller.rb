@@ -1,3 +1,4 @@
+require 'pty'
 module Conductor
   class ApplicationController < ActionController::Base
     before_filter :ensure_local_request
@@ -26,7 +27,6 @@ module Conductor
                 begin
                   stdin.each do |line|
                     tubesock.send_data line
-                    sleep 2
                   end
                 rescue Errno::EIO
                   puts "Errno:EIO error, but this probably just means " +

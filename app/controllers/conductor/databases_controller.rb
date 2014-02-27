@@ -14,6 +14,16 @@ module Conductor
       redirect_to database_path
     end
     def output
+      @content=nil
+      unless env['rack.hijack?']
+        spawn("> log/command.log")
+        redirect_to output_no_websocket_database_path
+      end
+    end
+
+    def output_no_websocket
+      spawn(session[:conductor_command_db] + "> log/command.log")
+      @content = File.read(File.join(Rails.root,'log','command.log'))
     end
 
     def drop
@@ -32,7 +42,12 @@ module Conductor
     end
 
     def websocket_database
-      open_socket(session[:conductor_command_db] || "bundle exec rake db:version")
+      begin
+        open_socket(session[:conductor_command_db] || "bundle exec rake db:version")
+      rescue Tubesock::HijackNotAvailable
+        puts "Websocket not available for this webserver"
+        redirect_to output_no_websocket_database_path
+      end
     end
 
     def create

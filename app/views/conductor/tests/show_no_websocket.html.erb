@@ -1,0 +1,13 @@
+<div id="bash">
+  <h1>Bash</h1>
+  <p>$ <%=session[:conductor_command_test].to_s%></p>
+</div>
+<h1>Tests </h1>
+<p>This server doesn't support websocket. Please wait some seconds and refresh the page <%= link_to("here",show_no_websocket_test_path)%></p>
+<div id="editor" class="tests">
+	<%= @content %>
+</div>
+<%= content_for :scripts do %>
+<%= javascript_include_tag "conductor/editor" %>
+<%= javascript_include_tag "conductor/tests" %>
+<% end %>

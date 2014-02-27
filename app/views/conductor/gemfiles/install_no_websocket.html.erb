@@ -1,0 +1,15 @@
+<div id="bash">
+  <h1>Bash</h1>
+  <p>$ bundle install</p>
+</div>
+<h1>Install gems </h1>
+<p>This server doesn't support websocket. Please wait some seconds and refresh the page <%= link_to("here",install_no_websocket_gemfile_path)%></p>
+<div id="editor" class="installgems">
+	<%= @content%>
+</div>
+
+
+<%= content_for :scripts do %>
+<%= javascript_include_tag "conductor/editor" %>
+<%= javascript_include_tag "conductor/installgems" %>
+<% end %>

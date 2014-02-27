@@ -1,5 +1,9 @@
 <h1>Install gems </h1>
+<% if @content %>
+  <p>This server doesn't support websocket. Please wait some seconds and refresh the page <%= link_to("here",install_gemfile_path,:method=> :post)%></p>
+<% end %>
 <div id="editor" class="installgems">
+<%= @content%>
 </div>
 <%= content_for :scripts do %>
   <%= javascript_include_tag "conductor/editor" %>

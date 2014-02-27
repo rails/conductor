@@ -10,17 +10,18 @@
   </p>
 
 <% end %>
+<h1>Database Task</h3>
 <%= form_tag(database_path) do %>
-<%= submit_tag "Create" %>
+<%= submit_tag "Create", class: "db_task"%>
 <% end %>
 <%= form_tag(drop_database_path) do %>
-<%= submit_tag "Drop" %>
+<%= submit_tag "Drop" , class: "db_task"%>
 <% end %>
 <%= form_tag(seed_database_path) do %>
-<%= submit_tag "Seed" %>
+<%= submit_tag "Seed" , class: "db_task"%>
 <% end %>
 <%= form_tag(setup_database_path) do %>
-<%= submit_tag "Setup" %>
+<%= submit_tag "Setup" , class: "db_task"%>
 <% end %>
 
 

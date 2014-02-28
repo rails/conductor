@@ -16,28 +16,28 @@ module Conductor
       models = @stats.lines.first
 
       assert_equal 'Models', models[:name]
-      assert_equal 222, models[:lines]
-      assert_equal 179, models[:codelines]
-      assert_equal 7, models[:classes]
-      assert_equal 26, models[:methods]
+      assert_equal 208, models[:lines]
+      assert_equal 171, models[:codelines]
+      assert_equal 6, models[:classes]
+      assert_equal 23, models[:methods]
       assert_equal 3, models[:m_over_c]
-      assert_equal 4, models[:loc_over_m]
+      assert_equal 5, models[:loc_over_m]
     end
 
     def test_total_line
       total = @stats.total_line
 
       assert_equal "Total", total[:name]
-      assert_equal 537, total[:lines]
-      assert_equal 437, total[:codelines]
+      assert_equal 650, total[:lines]
+      assert_equal 546, total[:codelines]
       assert_equal 23, total[:classes]
-      assert_equal 58, total[:methods]
-      assert_equal 2, total[:m_over_c]
+      assert_equal 73, total[:methods]
+      assert_equal 3, total[:m_over_c]
       assert_equal 5, total[:loc_over_m]
     end
 
     def test_code_loc
-      assert_equal 437, @stats.code_loc
+      assert_equal 546, @stats.code_loc
     end
 
     def test_tests_loc

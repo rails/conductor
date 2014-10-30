@@ -4,11 +4,11 @@ require "conductor/middleware"
 require 'conductor/filter'
 
 module Conductor
-  class Engine < Rails::Engine
+  class Engine < ::Rails::Engine
     isolate_namespace Conductor
 
     initializer 'asset_pipeline' do |app|
-      app.config.assets.precompile += ['conductor.js', 'conductor.css', 'conductor/gemfile.js', 'conductor/editor.js']
+      app.config.assets.precompile += %w(conductor.js conductor.css conductor/*)
     end
 
     config.autoload_paths << File.expand_path("../app/forms", __FILE__)

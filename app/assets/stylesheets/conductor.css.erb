@@ -1,47 +1,159 @@
+
 body {
   margin: 0;
-  margin-bottom: 25px;
   padding: 0;
-  background-color: #f0f0f0;
+  height: 100%;
+  margin-bottom: 25px;
+  background-color: #fff;
   font-family: verdana, "Lucida Grande", arial, helvetica, sans-serif;
   /*font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";*/
   font-size: 15px;
+  font-size: 87.5%;
   color: #333;
 }
 
+/* Headings
+--------------------------------------- */
+
 h1 {
-  font-size: 30px;
-  color: #000;
+  font-size: 2.5em;
+  line-height: 1em;
+  margin: 0.6em 0 .2em;
+  font-weight: bold;
 }
 
-a  {color: #03c}
-a:hover {
-  background-color: #03c;
+h2 {
+  font-size: 2.1428em;
+  line-height: 1em;
+  margin: 0.7em 0 .2333em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.7142em;
+  line-height: 1.286em;
+  margin: 0.875em 0 0.2916em;
+  font-weight: bold;
+}
+
+/* Links
+--------------------------------------- */
+
+a, a:link, a:visited {
+  color: #ee3f3f;
+  text-decoration: underline;
+}
+
+ol, ul, li { padding: 0; }
+li ul, li ol { margin:0 1.5em; }
+ul, ol { margin: 0 1.5em 1.5em 1.5em; }
+
+li ul, li ol { margin:0 1.5em; }
+ul, ol { margin: 0 1.5em 1.5em 1.5em; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table { border-collapse: collapse; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+
+#topNav {
+  padding: 1em 0;
+  color: #565656;
+  background: #222;
+  padding-left: 1em;
+}
+#topNav strong { color: #999; margin-right: 0.5em; }
+#topNav strong a { color: #FFF; }
+
+#title { float: right; margin-right: 2em; }
+#fade-title-text { color: #f1938c; }
+
+.more-info-links {
+  list-style: none;
+  display: inline;
+  margin: 0;
+}
+
+.more-info { display: inline-block; }
+.more-info:after { content: " |"; }
+
+.more-info:last-child:after { content: ""; }
+
+.wrapper {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1em;
+}
+
+#main-wrap {
+  min-height:100%;
+  position:relative;
+}
+
+#header {
+  background: #c52f24 repeat-x;
+  color: #FFF;
+  padding: 1.5em 0;
+  z-index: 99;
+}
+
+#feature {
+  background: #d5e9f6 repeat-x;
+  color: #333;
+  padding: 0.5em 0 1.5em;
+}
+
+#terminal {
+  background-color: #353535;
   color: white;
-  text-decoration: none;
+  font :15px   "Courier New", Courier, monospaceT;
+  padding: 0.4em;
+  border-radius: 4px;
 }
 
-.db_task{
+#container {
+  color: #333;
+  padding: 0.5em 0 1.5em 0;
+}
 
+#header h1 {
+  float: left;
+  background: url(<%= asset_path("conductor_logo.png") %>) no-repeat;
+  width: 297px;
+  text-indent: -9999em;
+  margin: 0;
+  padding: 0;
+}
+
+#header h1 a {
+  text-decoration: none;
+  display: block;
+  height: 77px;
+}
+
+#header .wrapper, #topNav .wrapper, #feature .wrapper { padding-left: 1em; max-width: 960px; }
+#feature .wrapper { max-width: 640px; padding-right: 23em; position: relative; z-index: 0; }
+
+.db_task {
   display: inline;
   float:left;
   margin: 10px 3px;
 }
+
 .bash h1 {
   font-weight: bold !important;
   margin: 25px 0 !important;
-
-}
-.bash {
-  margin:25px 0;
 }
 
-.bash p{
-  background: #ccc;
+.bash { margin:25px 0; }
+
+.bash p {
+  background: #d5e9f6;
   display: inline;
   font :15px   "Courier New", Courier, monospaceT;
   margin:25px 0;
   padding: 10px 25px;
+  border-radius: 4px;
 }
 
 #content {
@@ -59,82 +171,68 @@ a:hover {
   height: 400px;
 }
 
-#editor.tests{
-  margin-top: 10px;
-}
+#editor.tests { margin-top: 10px; }
 
-#footer {
+/* Clearing
+--------------------------------------- */
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
   clear: both;
+  visibility: hidden;
 }
 
-#getting-started {
-  /*border-top: 1px solid #ccc;
-  margin-top: 25px;*/
-  padding-top: 15px;
-}
-#getting-started h1 {
-  margin: 0;
-  font-size: 20px;
-}
-#getting-started h2 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: normal;
-  color: #333;
-  margin-bottom: 25px;
-}
-#getting-started ol {
-  margin-left: 0;
-  padding-left: 0;
-}
-#getting-started li {
-  font-size: 18px;
-  color: #888;
-  margin-bottom: 25px;
-}
-#getting-started li h2 {
-  margin: 0;
-  font-weight: normal;
-  font-size: 18px;
-  color: #333;
-}
-#getting-started li p {
-  color: #555;
-  font-size: 13px;
-}
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+.clear { clear:both; }
 
-
-#header, #about, #getting-started {
+#header, #about {
   padding-left: 75px;
   padding-right: 30px;
 }
 
-
-#header {
-  background-image: url(<%= asset_path("rails.png") %>);
-  background-repeat: no-repeat;
-  background-position: top left;
-  height: 64px;
+#mainCol {
+  max-width: 630px;
+  margin-left: 16em;
 }
-#header h1, #header h2 {margin: 0}
-#header h2 {
-  color: #888;
+
+#subCol {border-radius: 4px;
+  position: absolute;
+  z-index: 0;
+  top: 21px;
+  right: 0;
+  background: #FFF;
+  padding: 1em 1.5em 1em 1.25em;
+  width: 17em;
+  font-size: 0.9285em;
+  line-height: 1.3846em;
+  margin-right: 1em;
+}
+#subCol a, #feature a { color: #980905; }
+#subCol .actions { color: #980905; }
+#subCol .actions a { font-weight: bold; }
+#subCol .actions ul a { font-weight: normal; }
+#subCol .actions li { margin-bottom: 0.75em; }
+#subCol h3.action { margin-top: 0.25em; }
+#subCol h3.action img { vertical-align: text-bottom; }
+#subCol .actions ul { margin-left: 0; margin-top: 0.5em; }
+#subCol .actions ul li {
+  list-style: none;
+  padding: 0 0 0 1em;
+  background: url(<%= asset_path("bullet.gif") %>) no-repeat left 0.45em;
+  margin-left: 0;
+  font-size: 1em;
   font-weight: normal;
-  font-size: 16px;
-}
-#page {
-  background-color: #f0f0f0;
-  width: 85%;
-  margin: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-#meat {
-  border-top: 1px solid #ccc;
-  margin-top: 25px;
-  padding-top: 15px;
+#feature p {
+  font-size: 1.2857em;
+  margin-bottom: 0.75em;
 }
+
 #meat h1 {
   margin: 0;
   font-size: 20px;
@@ -147,41 +245,8 @@ a:hover {
   margin-bottom: 25px;
 }
 
+tr.statistic th { text-align: left; }
 
-#sidebar {
-  float: left;
-  width: 15%;
-  margin-left: 30px;
-}
+tr.statistic th { text-align: left; }
 
-#sidebar ul {
-  margin-left: 0;
-  padding-left: 0;
-}
-#sidebar ul h3 {
-  margin-top: 25px;
-  font-size: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
-
-}
-#sidebar li {
-  list-style-type: none;
-}
-#sidebar ul.links li {
-  margin-bottom: 5px;
-}
-
-tr.statistic th {
-  text-align: left;
-}
-
-tr.statistic th {
-  text-align: left;
-}
-
-tr.statistic td {
-  text-align: right;
-}
-
-
+tr.statistic td { text-align: right; }

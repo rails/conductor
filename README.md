@@ -1,4 +1,5 @@
 # Conductor
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/rails/conductor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Conductor is a Rails engine that lets you do through a web UI what you'd normally do with the rails shell command.
 

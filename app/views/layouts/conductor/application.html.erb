@@ -10,89 +10,115 @@
 </head>
 
 <body>
-  <div id="page">
-    <div id="sidebar">
-      <ul id="sidebar-items">
-        <li>
-          <h3>Code</h3>
-          <ul class="links">
-            <li><%= link_to("Test all", run_all_test_path) %></li>
-				    <li><%= link_to("Test models", run_model_test_path) %></li>
-				    <li><%= link_to("Test controllers", run_controller_test_path) %></li>
-				    <li><%= link_to("Test integration", run_integration_test_path) %></li>
-          </ul>
-        </li>
-
-        <li>
-          <h3>Generators</h3>
-          <ul class="links">
-            <li><%= link_to("Scaffold", new_scaffold_path) %></li>
-            <li><%= link_to("Resource", new_resource_path) %></li>
-            <li><%= link_to("Model", new_model_path) %></li>
-            <li><%= link_to("Controller", new_app_controller_path) %></li>
-            <li><%= link_to("Mailer", new_mailer_path) %></li>
-          </ul>
-        </li>
-
-        <li>
-          <h3>Manage</h3>
-          <ul class="links">
-            <li><%= link_to("Databases", database_path) %></li>
-            <li><%= link_to("Migrations", migrations_path) %></li>
-            <li><%= link_to("Fixtures", code_path(File.join(Rails.root,'test','fixtures'))) %></li>
-            <li><%= link_to("Code Editor", codes_path) %></li>
-            <li><%= link_to("Gems",edit_code_path(File.join(Rails.root,'Gemfile'))) %></li>
-            <li><%= link_to("Install Gems",install_gemfile_path,:method=> :post) %></li>
-          </ul>
-        </li>
-
-        <li>
-          <h3>Reflection</h3>
-          <ul class="links">
-            <li><%= link_to("Routes", routes_path) %></li>
-            <li><%= link_to("Annotations", annotations_path) %></li>
-            <li><%= link_to("Statistics", statistics_path) %></li>
-          </ul>
-        </li>
-
-        <li>
-          <h3>Documentation</h3>
-          <ul class="links">
-            <li><%= documentation_app %></li>
-            <li><%= documentation_rails %></li>
-            <li><%= documentation_guides%></li>
-            <li><%= link_to("Ruby Core", "http://www.ruby-doc.org/core-2.0.0/",target:"_blank") %></li>
-            <li><%= link_to("Ruby stdlib", "http://www.ruby-doc.org/stdlib-2.0.0/",target:"_blank") %></li>
-          </ul>
-        </li>
-
-
-        <li>
-          <h3>Extensions</h3>
-          <ul class="links">
-            <li><%= tolk_link %></li>
-            <li><%= webconsole_link %></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div id="content">
-      <div id="header">
-        <h1>Conductor: <%= @page_title %></h1>
-        <h2>You&rsquo;re riding Ruby on Rails!</h2>
-      </div>
-
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-
-      <div id="meat">
-        <%= yield %>
+  <div id="main-wrap">
+    <div id="topNav">
+      <div class="wrapper">
+        <strong class="more-info-label">
+          More at
+          <a href="http://rubyonrails.org/">
+            rubyonrails.org:
+          </a>
+        </strong>
+        <ul class="more-info-links s-hidden">
+          <li class="more-info"><%= documentation_app %></li>
+          <li class="more-info"><%= documentation_rails %></li>
+          <li class="more-info"><%= documentation_guides %></li>
+          <li class="more-info"><%= link_to("Ruby Core", "http://www.ruby-doc.org/core-2.0.0/",target:"_blank") %></li>
+          <li class="more-info"><%= link_to("Ruby stdlib", "http://www.ruby-doc.org/stdlib-2.0.0/",target:"_blank") %></li>
+          <li class="more-info"><%= tolk_link %></li>
+          <li class="more-info"><%= webconsole_link %></li>
+        </ul>
       </div>
     </div>
-    <div id="footer">&nbsp;</div>
-    <%= yield :scripts %>
+    <div id="header">
+      <div class="wrapper clearfix">
+        <h1>
+          <a href="/conductor" title="Welcom page">
+            Welcome
+          </a>
+        </h1>
+        <h3 id="title"><span id="fade-title-text">You are viewing:</span> <%= @page_title %></h3>
+      </div>
+    </div>
+    <div id="feature">
+      <div class="wrapper">
+        <h2>
+          Web UI for Rails commands
+        </h2>
+        <p>
+          Conductor is a Rails engine that lets you do through a web UI what you'd normally do with the rails shell command.
+        </p>
+        <p id="terminal">$ rails g <span class="blink">_</span></p>
+
+        <div id="subCol">
+          <h3 class="action">
+            <img src="<%= asset_path("chapters_icon.gif") %>" alt="">
+            Actions
+          </h3>
+
+          <ol class="actions">
+            <li>
+              <h4>Code</h4>
+              <ul class="links">
+                <li><%= link_to("Test all", run_all_test_path) %></li>
+                <li><%= link_to("Test models", run_model_test_path) %></li>
+                <li><%= link_to("Test controllers", run_controller_test_path) %></li>
+                <li><%= link_to("Test integration", run_integration_test_path) %></li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>Generators</h4>
+              <ul class="links">
+                <li><%= link_to("Scaffold", new_scaffold_path) %></li>
+                <li><%= link_to("Resource", new_resource_path) %></li>
+                <li><%= link_to("Model", new_model_path) %></li>
+                <li><%= link_to("Controller", new_app_controller_path) %></li>
+                <li><%= link_to("Mailer", new_mailer_path) %></li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>Manage</h4>
+              <ul class="links">
+                <li><%= link_to("Databases", database_path) %></li>
+                <li><%= link_to("Migrations", migrations_path) %></li>
+                <li><%= link_to("Fixtures", code_path(File.join(Rails.root,'test','fixtures'))) %></li>
+                <li><%= link_to("Code Editor", codes_path) %></li>
+                <li><%= link_to("Gems",edit_code_path(File.join(Rails.root,'Gemfile'))) %></li>
+                <li><%= link_to("Install Gems",install_gemfile_path,:method=> :post) %></li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>Reflection</h4>
+              <ul class="links">
+                <li><%= link_to("Routes", routes_path) %></li>
+                <li><%= link_to("Annotations", annotations_path) %></li>
+                <li><%= link_to("Statistics", statistics_path) %></li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id="page">
+      <div id="container">
+        <div id="wrapper">
+          <div id="mainCol">
+            <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>"><%= value %></div>
+            <% end %>
+
+            <div id="meat">
+              <%= yield %>
+            </div>
+          </div>
+          <%= yield :scripts %>
+          <%= javascript_include_tag "conductor/blink" %>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
